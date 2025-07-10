@@ -35,7 +35,7 @@ public:
 private:
     // ---Private variables for navigation ---
     std::vector<Waypoint> flightPlan;
-    int currentWaypointIndex;
+    size_t currentWaypointIndex;
 
 
 };
