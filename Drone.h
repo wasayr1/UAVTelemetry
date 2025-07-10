@@ -1,8 +1,17 @@
 #ifndef DRONE_H
 #define DRONE_H
 
+#include <string>
+#include <vector>
+
 class Drone {
 public:
+
+    struct Waypoint {
+        double latitude;
+        double longitude;
+    };
+
     // Constructor
     Drone(double start_lat, double start_lon);
 
@@ -12,9 +21,21 @@ public:
     double altitude;
     double speed;
 
+    double fuelLevel;
+    double windSpeed;
+    double windDirection; // In degrees
+    bool isGPSError;
+
     // Public funcs
     void updatePosition();
     void printStatus();
+
+private:
+    // ---Private variables for navigation ---
+    std::vector<Waypoint> flightPlan;
+    int currentWaypointIndex;
+
+
 };
 
 #endif // DRONE_H
