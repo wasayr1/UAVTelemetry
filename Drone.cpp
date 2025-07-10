@@ -73,11 +73,19 @@ void Drone::updatePosition() {
     }
 
     // 5. Move towards the target
-    double moveLat = (deltaLat / distance) * (speed / 50000.0); // Scaled for simulation
-    double moveLon = (deltaLon / distance) * (speed / 50000.0);
+    double stepDistance = speed / 50000.0; // The distance to move in one step
 
-    latitude += moveLat;
-    longitude += moveLon;
+    if (distance < stepDistance) {
+        // If we are closer than one step, just move directly to the waypoint
+        latitude = target.latitude;
+        longitude = target.longitude;
+    } else {
+        // Otherwise, take a normal-sized step
+        double moveLat = (deltaLat / distance) * stepDistance;
+        double moveLon = (deltaLon / distance) * stepDistance;
+        latitude += moveLat;
+        longitude += moveLon;
+    }
 
     // a. Add wind effect (a small random push)
     latitude += (rand() % 10 - 5) / 100000.0 * (windSpeed / 50.0);
