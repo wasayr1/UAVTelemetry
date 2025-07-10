@@ -3,16 +3,27 @@
 #include "Drone.h"  
 
 int main() {
-    // Creating a Drone object with a starting location (e.g., BU)
-    Drone myUAV(42.3505, -71.1054);
+    // Create a Drone object
+    Drone myUAV(42.3505, -71.1054); // Starting near BU
+
+    // Load the flight plan ---
+    myUAV.loadFlightPlan("waypoints.txt");
+
+    int loop_counter = 0;
 
     // The main simulation loop
     while (true) {
+        // -Periodically change wind conditions ---
+        if (loop_counter % 20 == 0) { // Every 20 seconds
+            myUAV.windSpeed = rand() % 30; // Wind up to 30 knots
+        }
+        
         myUAV.updatePosition();
         myUAV.printStatus();
 
-        // Pause the loop for 1 second to simulate a real-time data stream
+        // Pause for 1 second
         std::this_thread::sleep_for(std::chrono::seconds(1));
+        loop_counter++;
     }
 
     return 0;
