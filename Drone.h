@@ -26,6 +26,8 @@ public:
     double windDirection; // In degrees
     bool isGPSError;
 
+    void loadFlightPlan(const std::string& filename);
+
     // Public funcs
     void updatePosition();
     void printStatus();
