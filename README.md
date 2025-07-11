@@ -1,5 +1,9 @@
 UAV Telemetry and Navigation Simulator
 
+<p align="center">
+  <img src="demo.gif" width="750" />
+</p>
+
 ## How to Compile and Run
 
 Follow these instructions to get a local copy of the project up and running on your machine.
