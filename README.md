@@ -1,1 +1,1 @@
-UAV Telemetry Simulator
+UAV Telemetry and Navigation Simulator
