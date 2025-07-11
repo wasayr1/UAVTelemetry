@@ -1,7 +1,7 @@
 UAV Telemetry and Navigation Simulator
 
 <p align="center">
-  <img src="demo.gif" width="750" height ="750"/>
+  <img src="demo.gif" width="750" height ="1500"/>
 </p>
 
 ## How to Compile and Run
